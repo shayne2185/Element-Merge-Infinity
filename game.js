@@ -133,24 +133,15 @@ function renderNextTile() {
 // PC drag handlers
 
 function startDrag(e) {
+  // Zakazujeme ťahanie existujúcich tile-ov
+  // (dragujeme iba next tile z panelu)
   e.preventDefault();
-  const tile = e.currentTarget;
-  const level = parseInt(tile.dataset.level, 10);
-  const x = parseInt(tile.dataset.x, 10);
-  const y = parseInt(tile.dataset.y, 10);
-
-  // Toto nie je "existing tile drag", ale dragujeme "next tile" na board
-  // -> preto použijeme nextTileLevel a prázdne bunky
-  // Jednoduchšia verzia: dragujeme next tile z panelu, nie existujúci
-  // PRETO tu spravíme: ak drag začal na cell, ignorujeme
-  return;
 }
 
-// Touch drag z existujúceho tile ignorujeme rovnako
 function startDragTouch(e) {
   e.preventDefault();
-  return;
 }
+
 
 // ----
 // Reálne dragujeme "next tile" z panelu na board
